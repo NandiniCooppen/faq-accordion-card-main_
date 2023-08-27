@@ -39,7 +39,7 @@ Users should be able to:
 ![](./screenshot/screenshotdesktopresponsive.png)
 
 ### Mobile
-![](./screenshot/screenshotmobile.png)
+<img src="./screenshot/screenshotmobile.png" width="40%" />
 
 
 ### Links
