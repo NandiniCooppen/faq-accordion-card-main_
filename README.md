@@ -44,8 +44,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [FAQ accordion solution](https://github.com/NandiniCooppen/faq-accordion-card-main_)
+- Live Site URL: [FAQ accordion live site](https://nandinicooppen-faqaccordion.netlify.app/)
 
 ## My process
 
