@@ -1,0 +1,236 @@
+/*font import and variables declaration*/
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+:root {
+    --white: hsl(0, 0%, 100%);
+    --dark-desaturated-blue: hsl(238, 29%, 16%);
+    --soft-red: hsl(14, 88%, 65%);
+    --soft-violet: hsl(273, 75%, 66%);
+    --soft-blue: hsl(240, 73%, 65%);
+    --very-dark-grayish-blue: hsl(237, 12%, 33%);
+    --dark-grayish-blue: hsl(240, 6%, 50%);
+    --light-grayish-blue: hsl(240, 5%, 91%);
+    --background-linear: linear-gradient(180deg, hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+    --attribution-link: hsl(228, 45%, 44%);
+    --font-kumbh: "Kumbh Sans", sans-serif;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -20%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, -20%, 0);
+    }
+}
+
+/*style reset*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: var(--background-linear);
+    font-family: var(--font-kumbh);
+    font-size: 0.75rem;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+details.faq_details.no-animation {
+    animation: none;
+}
+
+.main_content_faq {
+    background-color: var(--white);
+    border-radius: 2rem;
+    width: 81%;
+    max-width: 350px;
+    min-height: 72vh;
+    margin: auto;
+    position: relative;
+}
+
+.main_content_faq::before {
+    content: '';
+    position: absolute;
+    top: -7rem;
+    left: calc(50% - 7.5rem);
+    background-image: url('./images/illustration-woman-online-mobile.svg'), url('./images/bg-pattern-mobile.svg');
+    background-repeat: no-repeat, no-repeat;
+    background-position: center top, center top 112px;
+    width: 240px;
+    height: 240px;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.main_article_faq {
+    width: 81%;
+    margin: auto;
+    margin-top: 8rem;
+}
+
+.main_title_faq {
+    font-size: 1.65rem;
+    text-align: center;
+    margin: 8rem 0 1rem 0;
+}
+
+.faq_details {
+    border-bottom: 1px solid var(--light-grayish-blue);
+    padding: 0.75rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.faq_question {
+    display: block;
+    color: var(--dark-desaturated-blue);
+    white-space: nowrap;
+    font-size: clamp(0.625rem, 0.4044rem + 1.3765vw, 0.875rem);
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.faq_question::after {
+    content: url('./images/icon-arrow-down.svg');
+    position: absolute;
+    right: 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.faq_question:hover {
+    color: var(--soft-red);
+}
+
+.faq_details[open] > .faq_question {
+    font-weight: 700;
+    color: var(--very-dark-grayish-blue);
+    margin-bottom: 0.5rem;
+}
+
+.faq_details[open] > .faq_question::after {
+    transform: rotate(180deg);
+    transition: transform 1.2s ease-in-out;
+}
+
+.faq_details:not([open]) > .faq_question::after {
+    transform: rotate(360deg);
+    transition: transform 1.2s ease-in-out;
+}
+
+.faq_details[open] {
+    border: none;
+}
+
+.faq_answer {
+    color: var(--very-dark-grayish-blue);
+}
+
+.faq_details[open] > .faq_answer.show {
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.border_answer {
+    border-bottom: 1px dashed transparent;
+    transition: border-color 1.2s ease-in-out;
+    margin-top: 1rem;
+}
+
+.faq_details[open] > .border_answer {
+    border-color: var(--soft-red);
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.attribution {
+    font-size: 0.6875rem;
+    text-align: center;
+    color: var(--white);
+}
+
+.attribution a {
+    color: var(--soft-red);
+    line-height: 1.5;
+}
+
+/* Larger screens */
+@media only screen and (min-width: 1024px) {
+    .main_content_faq {
+        display: flex;
+        gap: 65px;
+        max-width: 920px;
+        height: 55vh;
+        max-height: 509px;
+        min-height: 509px;
+    }
+
+    .main_content_faq::before {
+        display: none;
+    }
+
+    .main_article_illustration {
+        background-image: url('./images/illustration-woman-online-desktop.svg'), url('./images/bg-pattern-desktop.svg');
+        background-repeat: no-repeat, no-repeat;
+        background-position: 104% 63%, 103% 59%;
+        width: 100%;
+        position: relative;
+        transition: left 1.2s ease-in-out;
+    }
+
+    .main_article_illustration::before {
+        content: url('./images/illustration-box-desktop.svg');
+        position: absolute;
+        left: -8em;
+        top: 19.75em;
+        transition: left 1.2s ease-in-out;
+    }
+
+    .main_article_illustration.active_faq::before {
+        content: url('./images/illustration-box-desktop.svg');
+        position: absolute;
+        left: -10.6em;
+        transition: left 1.2s ease-in-out;
+    }
+
+    .main_article_faq {
+        width: 75%;
+        margin-right: 5rem;
+    }
+
+    .main_title_faq {
+        text-align: left;
+        margin: -2.15rem 0 2rem;
+    }
+}
+
+@media only screen and (min-width: 1075px) {
+    .main_article_illustration {
+        background-position: 250% 63%, 103% 59%;
+    }
+}
